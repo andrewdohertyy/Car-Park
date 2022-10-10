@@ -10,25 +10,18 @@ public class Main {
         Van van = new Van("Merc", "Sprinter");
         Motorbike motorbike = new Motorbike("bike", "bike");
 
-        System.out.println(car.toString());
-        System.out.println(van.toString());
+        System.out.println(car);
+        System.out.println(van);
 
         for (int i = 0; i < carPark.getCarParkTotalSize(); i++){
             carPark.addVehicle(van);
             carPark.addVehicle(motorbike);
         }
 
-        carPark.addVehicle(van);
-        carPark.addVehicle(car);
-
-
         System.out.println(carPark);
         System.out.println(carPark.getRemainingSpaces());
         System.out.println(carPark.getCarParkTotalSize());
-
     }
-
-
 }
     
     

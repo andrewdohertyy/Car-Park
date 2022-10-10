@@ -1,10 +1,12 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class CarPark {
 
-        public CarPark() {};
+        public CarPark() {}
 
         public int regSpaces = 20;
         public int motorbikeSpaces = 5;
@@ -12,8 +14,6 @@ public class CarPark {
         public final int STARTING_SPACES = 25;
 
         private final ArrayList<Vehicle> CarPark = new ArrayList<>();
-
-        public void addVehicle(Vehicle vehicle){};
 
         public void addVehicle(Car car) {
                 if (regSpaces >= 1) {
@@ -23,7 +23,7 @@ public class CarPark {
                         this.CarPark.add(car);
                         motorbikeSpaces = motorbikeSpaces -1;
                 } else {
-                        System.out.println("car park is full, cant park car here.");
+                        System.out.println("car park is full, cant park your car here.");
                 }
         }
         public void addVehicle(Motorbike motorbike){
@@ -60,7 +60,14 @@ public class CarPark {
                 return "CarPark currently contains " + CarPark;
         }
 
+        public String emptyCarPark(){
+                if(regSpaces + motorbikeSpaces == STARTING_SPACES){
+                        return "Come in, the car park is empty!";
+                }
+                return null;
+        }
 //        public int vanSpaces(){
-//                return;
+//                return CarPark.contains(VAN);
 //        }
+}
 }
