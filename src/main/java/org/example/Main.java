@@ -6,24 +6,20 @@ public class Main {
 
         CarPark carPark = new CarPark();
 
-        System.out.println(carPark.getCarParkTotalSize());
-
         Car car = new Car("mini", "cooper");
         Van van = new Van("Merc", "Sprinter");
 
         System.out.println(car.toString());
         System.out.println(van.toString());
 
-        carPark.addVehicle(car);
-        carPark.addVehicle(van);
-        carPark.addVehicle(new Motorbike("bmw", "fast"));
+        for (int i = 0; i < carPark.getCarParkTotalSize(); i++){
+            carPark.addVehicle(van);
+            carPark.addVehicle(car);
+        }
 
         System.out.println(carPark);
-
-
-
         System.out.println(carPark.getRemainingSpaces());
-
+        System.out.println(carPark.getCarParkTotalSize());
 
     }
 
