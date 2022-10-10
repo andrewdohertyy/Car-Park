@@ -18,25 +18,29 @@ public class CarPark {
         public void addVehicle(Car car) {
                 if (regSpaces >= 1) {
                         this.CarPark.add(car);
+                        regSpaces = regSpaces -1;
                 } else if (motorbikeSpaces >= 1){
                         this.CarPark.add(car);
+                        motorbikeSpaces = motorbikeSpaces -1;
                 } else {
-                        System.out.println("car park is full");
+                        System.out.println("car park is full, cant park car here.");
                 }
         }
         public void addVehicle(Motorbike motorbike){
                 if (motorbikeSpaces >= 1) {
                         this.CarPark.add(motorbike);
+                        motorbikeSpaces = motorbikeSpaces -1;
                 } else if (regSpaces >= 1){
                         this.CarPark.add(motorbike);
+                        regSpaces = regSpaces -1;
                 } else {
-                        System.out.println("car park is full");
+                        System.out.println("car park is full, cant park bike here.");
                 }
         }
 
         public void addVehicle(Van van){
                 if (regSpaces - 2 >= 3){
-                        regSpaces = regSpaces -2;
+                        regSpaces = regSpaces -3;
                         this.CarPark.add(van);
                 } else {
                         System.out.println("Cant add a van car park full");
@@ -48,11 +52,7 @@ public class CarPark {
         }
 
         public int getRemainingSpaces(){
-                if(25 - CarPark.size() > 0) {
-                        return motorbikeSpaces + regSpaces - CarPark.size();
-                } else {
-                        return 0;
-                }
+                return  regSpaces + motorbikeSpaces;
         }
 
         @Override
