@@ -6,48 +6,62 @@ public class CarPark {
 
         public CarPark() {};
 
-        public int spaces = 20;
+        public int regSpaces = 20;
+        public int motorbikeSpaces = 5;
 
-        private ArrayList<Vehicle> CarPark = new ArrayList<>();
+        private final ArrayList<Vehicle> CarPark = new ArrayList<>();
 
         public void addVehicle(Vehicle vehicle){};
 
-        public void addVehicle(Car car){
+        public String addVehicle(Car car){
+                if(regSpaces - 1 < 0 ){
+                        if (motorbikeSpaces -1 < 0) {
+                                return "car park full";
+                        } else {
+                                motorbikeSpaces = motorbikeSpaces -1;
+                        }
+                }
                 this.CarPark.add(car);
-                spaces = spaces -1;
+                return "Car added to car park ";
         }
-        public void addVehicle(Motorbike motorbike){
+        public String addVehicle(Motorbike motorbike){
+
+                if(motorbikeSpaces - 1 < 0 ){
+                        if (regSpaces -1 < 0) {
+                                return "car park full";
+                        } else {
+                                regSpaces = regSpaces -1;
+                        }
+                }
                 this.CarPark.add(motorbike);
-                spaces = spaces -1;
+                return "Motorbike added to car park ";
         }
 
-        public void addVehicle(Van van){
+        public String addVehicle(Van van){
+
+                if (regSpaces -2 < 0){
+                        return "car park full";
+                } else {
+                        regSpaces = regSpaces -2;
+                }
                 this.CarPark.add(van);
-                spaces = spaces -3;
+                return "Van added to car park ";
         }
 
-
-        public int getCarParkSize() {
-                return CarPark.size();
+        public int getCarParkTotalSize() {
+                return regSpaces + motorbikeSpaces;
         }
 
         public int getRemainingSpaces(){
                 if(20 - CarPark.size() > 0) {
-                        return 20 - CarPark.size();
+                        return motorbikeSpaces + regSpaces - CarPark.size();
                 } else {
                         return 0;
                 }
         }
 
-        public void setCarPark(ArrayList<Vehicle> carPark) {
-                CarPark = carPark;
-        }
-
         @Override
         public String toString() {
-                return "CarPark{" +
-                        "CarPark=" + CarPark +
-                        ", spaces=" + spaces +
-                        '}';
+                return "CarPark currently contains " + CarPark;
         }
 }

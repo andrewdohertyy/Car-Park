@@ -9,4 +9,6 @@ public class Van extends Vehicle{
     public VehicleType getType(){
         return VehicleType.van;
     }
+
+
 }

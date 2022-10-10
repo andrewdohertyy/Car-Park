@@ -7,6 +7,11 @@ public class Vehicle {
         this.make = make;
         this.model = model;
     }
-    public Vehicle() {
+
+    @Override
+    public String toString() {
+        return
+                "make='" + make + '\'' +
+                ", model='" + model + '\'';
     }
 }
